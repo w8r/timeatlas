@@ -5,6 +5,8 @@ var http = require('http');
 var path = require('path');
 
 var lessMiddleware = require('less-middleware');
+
+var config = require('./config');
 var routes = require('./routes');
 var app = express();
 
@@ -24,5 +26,5 @@ app.get('/', routes.index);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
-    console.log("Listening on " + port);
+    console.log("application started on port " + port);
 });

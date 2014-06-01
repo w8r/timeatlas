@@ -17,7 +17,7 @@ links:
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}qwery/integration/ender.js ${VENDOR_JS_PATH}qwery.js
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}bonzo/integration/ender.js ${VENDOR_JS_PATH}bonzo.js
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}reqwest/reqwest.js ${VENDOR_JS_PATH}reqwest.js
-	@ln -fs ${NODE_MODULES_VENDOR_PATH}lodash.js ${VENDOR_JS_PATH}lodash.js
+	@ln -fs ${NODE_MODULES_VENDOR_PATH}lodash/lodash.js ${VENDOR_JS_PATH}lodash.js
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}page/index.js ${VENDOR_JS_PATH}page.js
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}bean/bean.js ${VENDOR_JS_PATH}bean.js
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}morpheus/integration/ender.js ${VENDOR_JS_PATH}morpheus.js

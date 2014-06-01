@@ -6,17 +6,19 @@
     document.write(scripts);
 })(
     // vendor
-    '/js/vendor/qwery.js',
-    '/js/vendor/bean.js',
-    '/js/vendor/bonzo.js',
-    '/js/vendor/reqwest.js',
-    '/js/vendor/morpheus.js',
-    '/js/vendor/lodash.js',
-    '/js/vendor/page.js'
+    '/vendor/js/qwery.js',
+    '/vendor/js/bean.js',
+    '/vendor/js/bonzo.js',
+    '/vendor/js/reqwest.js',
+    '/vendor/js/morpheus.js',
+    '/vendor/js/lodash.js',
+    '/vendor/js/page.js',
 
     // bridge
 
-    // lib 
+    // lib
+    '/js/src/lib/utils.js',
+    '/js/src/lib/eventtarget.js'
 
     // application 
 );

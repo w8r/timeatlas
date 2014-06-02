@@ -18,7 +18,9 @@
 
     // lib
     '/js/src/lib/utils.js',
-    '/js/src/lib/eventtarget.js'
+    '/js/src/lib/eventtarget.js',
 
-    // application 
+    // application
+    '/js/src/app/router.js',
+    '/js/src/app/app.js'
 );

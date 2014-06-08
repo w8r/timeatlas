@@ -13,14 +13,25 @@
     '/vendor/js/morpheus.js',
     '/vendor/js/lodash.js',
     '/vendor/js/page.js',
+    '/vendor/js/handlebars.runtime.js',
 
     // bridge
 
     // lib
     '/js/src/lib/utils.js',
+    '/js/src/lib/templates.js',
     '/js/src/lib/eventtarget.js',
+    '/js/src/lib/view.js',
+    '/js/src/lib/map.js',
+
+    // templates
+    '/js/templates/templates.js',
 
     // application
     '/js/src/app/router.js',
-    '/js/src/app/app.js'
+    '/js/src/app/app.js',
+    '/js/src/app/view/app.js',
+    '/js/src/app/view/map.js',
+    '/js/src/app/view/timeline.js',
+    '/js/src/app/view/footer.js'
 );

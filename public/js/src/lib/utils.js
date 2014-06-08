@@ -25,6 +25,26 @@ var utils = {
         Child._super = Base;
 
         Child.prototype.constructor = Child;
+    },
+
+    /**
+     * HTML to Node
+     * @param  {String} html
+     * @return {DocumentFragment}
+     */
+    htmlToDocumentFragment: function(html) {
+        var div = document.createElement('div');
+        div.innerHTML = html;
+
+        if (div.childNodes.length == 1) {
+            return div.removeChild(div.firstChild);
+        } else {
+            var fragment = document.createDocumentFragment();
+            while (div.firstChild) {
+                fragment.appendChild(div.firstChild);
+            }
+            return fragment;
+        }
     }
 
 };

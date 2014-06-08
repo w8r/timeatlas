@@ -3,22 +3,16 @@ html
   block head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no')
     meta(name='description', content='')
     meta(name='author', content='')
       
     title #{title}
+    link(rel='stylesheet', href='/vendor/flat-ui/bootstrap/css/bootstrap.css', type='text/css', media='screen')
     link(rel='stylesheet', href='/css/app.css', type='text/css', media='screen')
 
     script(src='https://maps.googleapis.com/maps/api/js?key=#{config.googleMapsAPIkey}&sensor=TRUE', type='text/javascript')
     script(src='/js/src/app.js', type='text/javascript')
   body
-    header
-      block header
-    .container
-      .main-content
-        block content
-      .sidebar
-        block sidebar
-    footer
-      block footer
+    block content
+    block bottom

@@ -1,9 +1,14 @@
+/**
+ * Application
+ * @extends {EventTarget}
+ * @constructor
+ */
 var App = function() {
 
     /**
      * @type {App.View}
      */
-    this.view = new App.View();
+    this.view = new App.View(this);
 
     /**
      * @type {Router}
@@ -13,7 +18,17 @@ var App = function() {
     /**
      * @type {Map}
      */
-    this.map = new Map();
+    this.map = new App.Map(this.view);
+
+    /**
+     * @type {App.Timeline}
+     */
+    this.timeline = new App.Timeline(this.view);
+
+    /**
+     * @type {App.Footer}
+     */
+    this.footer = new App.Footer(this.view);
 };
 utils.inherits(App, EventTarget);
 

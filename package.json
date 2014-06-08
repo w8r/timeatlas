@@ -50,7 +50,8 @@
     "morpheus": "*",
     "bonzo": "*",
     "page": "1.3.7",
-    "flat-ui": "designmodo/Flat-UI"
+    "flat-ui": "designmodo/Flat-UI",
+    "handlebars": "~2.0.0-alpha.4"
   },
   "engines": {
     "node": "0.10.x"

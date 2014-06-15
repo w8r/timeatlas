@@ -120,14 +120,15 @@ tas.App.Timeline.prototype.onRendered = function() {
         minHandle = $('.handle-min', container),
         maxHandle = $('.handle-max', container);
 
-    console.log(minHandle, maxHandle);
-
     this.onHandleDragStart = this.onHandleDragStart.bind(this);
     this.onHandleDrag = this.onHandleDrag.bind(this);
     this.onHandleDragStop = this.onHandleDragStop.bind(this);
 
-    minHandle.on('mousedown', this.onHandleDragStart);
-    maxHandle.on('mousedown', this.onHandleDragStart);
+    //minHandle.on('mousedown', this.onHandleDragStart);
+    minHandle.on('touchmove', this.onHandleDrag);
+
+    //maxHandle.on('mousedown', this.onHandleDragStart);
+    maxHandle.on('touchmove', this.onHandleDrag);
 };
 
 /**

@@ -47,5 +47,6 @@
     '/js/src/app/view/map.js',
     '/js/src/app/view/timeline.js',
     '/js/src/app/view/featuresselect.js',
-    '/js/src/app/view/footer.js'
+    '/js/src/app/view/footer.js',
+    '/js/src/app/view/stories.js'
 );

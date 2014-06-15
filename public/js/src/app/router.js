@@ -28,9 +28,9 @@ tas.App.Router.config = tas.utils.clone(tas.Router.config);
  */
 tas.Router.prototype.initRoutes = function() {
     // register paths
-    page(tas.App.Router.routes.MAP, this.app.showMap);
-    page(tas.App.Router.routes.STORY, this.app.showStory);
-    page(tas.App.Router.routes.ALL, this.app.notFound);
+    page(tas.App.Router.routes.MAP, this.app.showMap.bind(this.app));
+    page(tas.App.Router.routes.STORY, this.app.showStory.bind(this.app));
+    page(tas.App.Router.routes.ALL, this.app.notFound.bind(this.app));
 
     // init
     page(tas.App.Router.config);

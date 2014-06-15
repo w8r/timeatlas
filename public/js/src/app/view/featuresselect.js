@@ -19,6 +19,13 @@ tas.App.FeaturesSelect = function(container, options) {
 tas.utils.inherits(tas.App.FeaturesSelect, tas.View);
 
 /**
+ * @enum {String}
+ */
+tas.App.FeaturesSelect.events = {
+    MODE_CHANGED: 'mode_changed'
+};
+
+/**
  * @static
  * @type {String}
  */
@@ -74,6 +81,7 @@ tas.App.FeaturesSelect.prototype.onClick = function(evt) {
         target.addClass(tas.App.FeaturesSelect.ACTIVE_CLASS);
         this.mode |= tas.App.FeaturesSelect.type[mode];
     }
+    this.trigger(tas.App.FeaturesSelect.events.MODE_CHANGED, this.getMode());
 };
 
 /**

@@ -1,7 +1,7 @@
 (function() {
   var template = Handlebars.template, templates = tas.Templates = tas.Templates || {};
 templates['app.featuresselect'] = template({"compiler":[5,">= 2.0.0"],"main":function(depth0,helpers,partials,data) {
-  return "<div class=\"btn-group features-select\">\n	<span class=\"btn btn-primary\" data-mode=\"events\">\n		<span class=\"glyphicon glyphicon-flash\"></span>\n	</span>\n	<span class=\"btn btn-primary\" data-mode=\"people\">\n		<span class=\"fui-user\"></span>\n	</span>\n	<span class=\"btn btn-primary\" data-mode=\"places\">\n		<span class=\"fui-location\"></span>\n	</span>\n</div>\n\n";
+  return "<div class=\"btn-group features-select\">\n	<span class=\"btn btn-primary\" data-mode=\"events\">\n		<span class=\"glyphicon glyphicon-flash\"></span>\n	</span>\n	<span class=\"btn btn-primary\" data-mode=\"people\">\n		<span class=\"fui-user\"></span>\n	</span>\n	<span class=\"btn btn-primary\" data-mode=\"places\">\n		<span class=\"fui-location\"></span>\n	</span>\n	\n</div>\n\n";
   },"useData":true});
 templates['app.footer'] = template({"compiler":[5,">= 2.0.0"],"main":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
@@ -13,6 +13,9 @@ templates['app.footer'] = template({"compiler":[5,">= 2.0.0"],"main":function(de
     + escapeExpression(((helper = helpers.body || (depth0 && depth0.body)),(typeof helper === functionType ? helper.call(depth0, {"name":"body","hash":{},"data":data}) : helper)))
     + "\n  </div>\n</div>\n";
 },"useData":true});
+templates['app.stories'] = template({"compiler":[5,">= 2.0.0"],"main":function(depth0,helpers,partials,data) {
+  return "<div class=\"app-view stories-view app-view-hidden\">\n	<h2>Stories</h2>\n</div>\n";
+  },"useData":true});
 templates['app.timeline'] = template({"compiler":[5,">= 2.0.0"],"main":function(depth0,helpers,partials,data) {
   var helper, functionType="function", escapeExpression=this.escapeExpression;
   return "<div class=\"timeline\">\n	<div class=\"inner\">\n		<div class=\"title\">"

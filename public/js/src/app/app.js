@@ -5,43 +5,89 @@
  */
 tas.App = function() {
 
+    this.render();
+
+    /**
+     * @type {Map}
+     */
+    this.map = new tas.App.Map(this);
+
     /**
      * @type {App.View}
      */
-    this.view = new tas.App.View(this);
+    this.appView = new tas.App.View(this);
+
+    /**
+     * @type {tas.App.Stories}
+     */
+    this.storyView = new tas.App.Stories(this);
+
+    /**
+     * @type {tas.View}
+     */
+    this.currentView = null;
 
     /**
      * @type {Router}
      */
     this.router = new tas.App.Router(this);
-
-    /**
-     * @type {Map}
-     */
-    this.map = new tas.App.Map(this.view);
-
-    /**
-     * @type {App.Timeline}
-     */
-    this.timeline = new tas.App.Timeline(this.view);
-
-    /**
-     * @type {tas.App.FeaturesSelect}
-     */
-    this.featuresSelect = new tas.App.FeaturesSelect(this.view);
-
-    /**
-     * @type {App.Footer}
-     */
-    this.footer = new tas.App.Footer(this.view);
 };
-tas.utils.inherits(tas.App, tas.EventTarget);
+tas.utils.inherits(tas.App, tas.View);
+
+/**
+ * @static
+ * @enum {String}
+ */
+tas.App.views = {
+    MAP: 'map',
+    STORIES: 'stories'
+};
+
+/**
+ * @inheritDoc
+ */
+tas.App.prototype.createDom = function() {
+    this.element = document.createElement('div');
+    this.element.className = 'container-fluid app';
+};
+
+/**
+ * @param {tas.App.views} viewType
+ */
+tas.App.prototype.setView = function(viewType) {
+    var view;
+    switch (viewType) {
+        case tas.App.views.MAP:
+            view = this.appView;
+            break;
+
+        case tas.App.views.STORIES:
+            view = this.storyView;
+            break;
+        default:
+            break;
+    }
+
+    if (view && view !== this.currentView) {
+        if (this.currentView) {
+            $(this.currentView.getElement())
+                .removeClass('app-view-active')
+                .addClass('app-view-hidden');
+        }
+
+        this.currentView = view;
+        $(this.currentView.getElement())
+            .removeClass('app-view-hidden')
+            .addClass('app-view-active');
+    }
+};
 
 /**
  * Map page
  */
 tas.App.prototype.showMap = function() {
-    console.log('map');
+    console.log('map', this);
+    this.setView(tas.App.views.MAP);
 };
 
 /**
@@ -54,4 +100,5 @@ tas.App.prototype.notFound = function() {};
  */
 tas.App.prototype.showStory = function(context) {
     console.log('story');
+    this.setView(tas.App.views.STORIES);
 };

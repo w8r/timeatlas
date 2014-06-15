@@ -2,14 +2,25 @@
 	<div class="inner">
 		<div class="title">{{title}}</div>
 		<div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-			{{#each dates}}
-			<div class="ui-slider-segment"></div>
-			{{/each}}
-			<div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"></div>
-			<div class="slider-min"></div>
-			<div class="slider-max"></div>
-			<div class="ui-slider-handle ui-state-default ui-corner-all handle-min"></div>
-			<div class="ui-slider-handle ui-state-default ui-corner-all handle-max"></div>
+			<div class="ui-slider-body">
+				<div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-before"></div>
+				<div class="ui-slider-segments"></div>
+				<div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-after"></div>
+			</div>
+
+			<div class="ui-slider-handle ui-state-default ui-corner-all handle-min">
+				<div class="tooltip fade bottom in tooltip-min">
+					<div class="tooltip-arrow"></div>
+					<div class="tooltip-inner">{{startDate}}</div>
+				</div>
+			</div>
+			
+			<div class="ui-slider-handle ui-state-default ui-corner-all handle-max">
+				<div class="tooltip fade bottom in tooltip-max">
+					<div class="tooltip-arrow"></div>
+					<div class="tooltip-inner">{{endDate}}</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

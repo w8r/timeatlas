@@ -2,40 +2,36 @@
  * @constructor
  * @param {App} app
  */
-var Router = function(app) {
-    this.app = app;
-    this.initRoutes();
+tas.App.Router = function(app) {
+    tas.Router.call(this, app);
 };
+tas.utils.inherits(tas.App.Router, tas.Router);
 
 /**
  * @static
  * @type {Object}
  */
-Router.routes = {
+tas.App.Router.routes = tas.utils.extend({}, tas.Router.routes, {
     MAP: '/',
     STORY: '/story/:id',
     ALL: '*'
-};
+});
 
 /**
  * @static
  * @type {Object}
  */
-Router.config = {
-    click: true,
-    popstate: true,
-    dispatch: true
-};
+tas.App.Router.config = tas.utils.clone(tas.Router.config);
 
 /**
  * Init routes
  */
-Router.prototype.initRoutes = function() {
+tas.Router.prototype.initRoutes = function() {
     // register paths
-    page(Router.routes.MAP, this.app.showMap);
-    page(Router.routes.STORY, this.app.showStory);
-    page(Router.routes.ALL, this.app.notFound);
+    page(tas.App.Router.routes.MAP, this.app.showMap);
+    page(tas.App.Router.routes.STORY, this.app.showStory);
+    page(tas.App.Router.routes.ALL, this.app.notFound);
 
     // init
-    page(Router.config);
+    page(tas.App.Router.config);
 };

@@ -3,50 +3,55 @@
  * @extends {EventTarget}
  * @constructor
  */
-var App = function() {
+tas.App = function() {
 
     /**
      * @type {App.View}
      */
-    this.view = new App.View(this);
+    this.view = new tas.App.View(this);
 
     /**
      * @type {Router}
      */
-    this.router = new Router(this);
+    this.router = new tas.App.Router(this);
 
     /**
      * @type {Map}
      */
-    this.map = new App.Map(this.view);
+    this.map = new tas.App.Map(this.view);
 
     /**
      * @type {App.Timeline}
      */
-    this.timeline = new App.Timeline(this.view);
+    this.timeline = new tas.App.Timeline(this.view);
+
+    /**
+     * @type {tas.App.FeaturesSelect}
+     */
+    this.featuresSelect = new tas.App.FeaturesSelect(this.view);
 
     /**
      * @type {App.Footer}
      */
-    this.footer = new App.Footer(this.view);
+    this.footer = new tas.App.Footer(this.view);
 };
-utils.inherits(App, EventTarget);
+tas.utils.inherits(tas.App, tas.EventTarget);
 
 /**
  * Map page
  */
-App.prototype.showMap = function() {
+tas.App.prototype.showMap = function() {
     console.log('map');
 };
 
 /**
  * 404
  */
-App.prototype.notFound = function() {};
+tas.App.prototype.notFound = function() {};
 
 /**
  * Story
  */
-App.prototype.showStory = function(context) {
+tas.App.prototype.showStory = function(context) {
     console.log('story');
 };

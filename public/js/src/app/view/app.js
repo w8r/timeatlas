@@ -3,17 +3,17 @@
  * @constructor
  * @param {App} app
  */
-App.View = function(app) {
-    View.call(this);
+tas.App.View = function(app) {
+    tas.View.call(this);
     this.setModel(app);
     this.render();
 };
-utils.inherits(App.View, View);
+tas.utils.inherits(tas.App.View, tas.View);
 
 /**
  * @inheritDoc
  */
-App.View.prototype.createDom = function() {
+tas.App.View.prototype.createDom = function() {
     this.element = document.createElement('div');
     this.element.className = 'container-fluid app';
 };

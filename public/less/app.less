@@ -27,5 +27,52 @@ html {
 		.inner {
 			margin: 0 40px 40px;
 		}
+
+		.ui-slider-segments {
+			width: 80%;
+			height: 100%;
+			margin-left: 10%;
+			position: absolute;
+		}
+
+		.ui-slider-range-before,
+		.ui-slider-range-after {
+			width: 10%;
+		}
+		.ui-slider-range-after {
+			margin-left: 90%;
+			border-radius: 0 30px 30px 0;
+		}
+
+		.ui-slider-handle {
+			margin-left: -9px;
+
+			.tooltip {
+				top: 16px;
+				left: -31px;
+				position: absolute;
+
+				.tooltip-inner {
+					padding: 6px 6px;
+					width: 80px;
+					line-height: 1;
+					font-size: 0.85em;
+				}
+			}
+		}
+
+		.handle-min {
+			left: 10%;
+		}
+
+		.handle-max {
+			left: 90%;
+		}
+	}
+
+	.features-select {
+		position: absolute;
+		top: 40px;
+		right: 40px;
 	}
 }

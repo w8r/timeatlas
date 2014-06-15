@@ -2,4 +2,4 @@
  * @const
  * @type {Object}
  */
-var Templates = {};
+tas.Templates = {};

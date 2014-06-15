@@ -7,7 +7,7 @@
  * @name utils
  * @type {Object}
  */
-var utils = {
+tas.utils = {
 
     /**
      * Inheritance
@@ -26,6 +26,12 @@ var utils = {
 
         Child.prototype.constructor = Child;
     },
+
+    extend: _.extend,
+
+    clone: _.clone,
+
+    merge: _.merge,
 
     /**
      * HTML to Node

@@ -24,6 +24,7 @@ links:
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}page/index.js ${VENDOR_JS_PATH}page.js
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}bean/bean.js ${VENDOR_JS_PATH}bean.js
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}morpheus/integration/ender.js ${VENDOR_JS_PATH}morpheus.js
+	@node_modules/ender/bin/ender build qwery bean bonzo reqwest morpheus -o ${VENDOR_JS_PATH}/ender.js
 	@ln -fs ${NODE_MODULES_VENDOR_PATH}handlebars/dist/handlebars.runtime.js ${VENDOR_JS_PATH}handlebars.runtime.js
 
 	@ln -fs ${FLAT_UI_FONTS}flat-ui-icons-regular.eot  ${FONTS_DIR}flat-ui-icons-regular.eot
@@ -37,7 +38,7 @@ lint: include node_modules/make-lint/index.mk
 
 templates:
 	@./node_modules/handlebars/bin/handlebars ${CLIENT_TEMPLATES_SRC_DIR}*.mustache \
-	 -n Templates -e mustache -f ${CLIENT_TEMPLATES_OUTPUT_DIR}templates.js;
+	 -n tas.Templates -e mustache -f ${CLIENT_TEMPLATES_OUTPUT_DIR}templates.js;
 	@echo "..templates recompiled to ${CLIENT_TEMPLATES_OUTPUT_DIR}templates.js"
 
 .PHONY: project

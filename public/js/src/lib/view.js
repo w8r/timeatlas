@@ -1,9 +1,10 @@
-var View = function() {};
+tas.View = function() {};
+tas.utils.inherits(tas.View, tas.EventTarget);
 
 /**
  * @enum{String}
  */
-View.eventType = {};
+tas.View.eventType = {};
 
 /**
  * @static
@@ -11,29 +12,29 @@ View.eventType = {};
  * @param  {*}      data
  * @return {DocumentFragment}
  */
-View.renderFromTemplate = function(templateName, data) {
-    return utils.htmlToDocumentFragment(Templates[templateName](data));
+tas.View.renderFromTemplate = function(templateName, data) {
+    return tas.utils.htmlToDocumentFragment(tas.Templates[templateName](data));
 };
 
 /**
  * @type {Element}
  */
-View.prototype.element = null;
+tas.View.prototype.element = null;
 
 /**
  * @type {*}
  */
-View.prototype.model = null;
+tas.View.prototype.model = null;
 
 /**
  * @type {View}
  */
-View.prototype.parent = null;
+tas.View.prototype.parent = null;
 
 /**
  * @param  {Element} container
  */
-View.prototype.render = function(container) {
+tas.View.prototype.render = function(container) {
     if (!this.element) {
         this.createDom();
     }
@@ -49,52 +50,52 @@ View.prototype.render = function(container) {
 /**
  * @return {Element}
  */
-View.prototype.getElement = function() {
+tas.View.prototype.getElement = function() {
     return this.element;
 };
 
 /**
  * @param {*} model
  */
-View.prototype.setModel = function(model) {
+tas.View.prototype.setModel = function(model) {
     this.model = model;
 };
 
 /**
  * @return {*}
  */
-View.prototype.getModel = function() {
+tas.View.prototype.getModel = function() {
     return this.model;
 };
 
 /**
  * @return {View}
  */
-View.prototype.getParent = function() {
+tas.View.prototype.getParent = function() {
     return this.parent;
 };
 
 /**
  * @param {View} parent
  */
-View.prototype.setParent = function(parent) {
+tas.View.prototype.setParent = function(parent) {
     this.parent = parent;
 };
 
 /**
  * Create dom elements, from template for example
  */
-View.prototype.createDom = function() {};
+tas.View.prototype.createDom = function() {};
 
 /**
  * Element rendered, enhance
  */
-View.prototype.onRendered = function() {};
+tas.View.prototype.onRendered = function() {};
 
 /**
  * Destroys dom element
  */
-View.prototype.destroyDom = function() {
+tas.View.prototype.destroyDom = function() {
     if (this.element && this.element.parentNode) {
         this.element.parentNode.removeChild(this.element);
     }
@@ -103,7 +104,7 @@ View.prototype.destroyDom = function() {
 /**
  * @param {View} child
  */
-View.prototype.appendChild = function(child) {
+tas.View.prototype.appendChild = function(child) {
     child.setParent(this);
     child.render(this.element);
     child.parent = this;
@@ -112,7 +113,7 @@ View.prototype.appendChild = function(child) {
 /**
  * Destructor
  */
-View.prototype.destroy = function() {
+tas.View.prototype.destroy = function() {
     this.element = null;
     this.model = null;
 };

@@ -7,7 +7,7 @@
  * Events mixin
  * @class EventTarget
  */
-var EventTarget = function() {};
+tas.EventTarget = function() {};
 
 /**
  * Removes 'on' part
@@ -16,7 +16,7 @@ var EventTarget = function() {};
  * @static
  * @return {String}
  */
-EventTarget.cleanEventType = function(type) {
+tas.EventTarget.cleanEventType = function(type) {
     return type.replace(/^on([A-Z])/, function(full, first) {
         return first.toLowerCase();
     });
@@ -25,12 +25,12 @@ EventTarget.cleanEventType = function(type) {
 /**
  * Convenience & consistency
  */
-EventTarget.prototype.constructor = EventTarget;
+tas.EventTarget.prototype.constructor = EventTarget;
 
 /**
  * @type {Object}
  */
-EventTarget.prototype._events = null;
+tas.EventTarget.prototype._events = null;
 
 /**
  * Adds event handlers directly from constructor options. Pairs with 'onX' in key
@@ -38,7 +38,7 @@ EventTarget.prototype._events = null;
  *
  * @param {Object} options
  */
-EventTarget.prototype.addEventsFromOptions = function(options) {
+tas.EventTarget.prototype.addEventsFromOptions = function(options) {
     for (var option in options) {
         if ((/^on[A-Z]/).test(option) || typeof options[option] === 'function') {
             this.addEvent(option, options[option]);
@@ -54,8 +54,8 @@ EventTarget.prototype.addEventsFromOptions = function(options) {
  * @param  {Function} handler
  * @return {EventTarget} self
  */
-EventTarget.prototype.on = function(type, handler) {
-    type = EventTarget.cleanEventType(type);
+tas.EventTarget.prototype.on = function(type, handler) {
+    type = tas.EventTarget.cleanEventType(type);
     this._events = this._events || {};
     var handlers = this._events[type] = this._events[type] || [];
     if (handler && handlers.indexOf(handler) === -1) {
@@ -71,7 +71,7 @@ EventTarget.prototype.on = function(type, handler) {
  * @param  {Function} handler
  * @return {EventTarget} self
  */
-EventTarget.prototype.once = function(type, handler) {
+tas.EventTarget.prototype.once = function(type, handler) {
     var self = this,
         wrapped = function() {
             handler.apply(self, Array.prototype.slice.call(arguments, 0));
@@ -88,9 +88,9 @@ EventTarget.prototype.once = function(type, handler) {
  * @param  {Function} handler
  * @return {EventTarget} self
  */
-EventTarget.prototype.off = function(type, handler) {
+tas.EventTarget.prototype.off = function(type, handler) {
     var pos;
-    type = EventTarget.cleanEventType(type);
+    type = tas.EventTarget.cleanEventType(type);
     this._events = this._events || {};
     if (!this._events[type]) return this;
     pos = this._events[type].indexOf(handler);
@@ -111,7 +111,7 @@ EventTarget.prototype.off = function(type, handler) {
  * @param  {Object} events
  * @return {EventTarget} self
  */
-EventTarget.prototype.addEvents = function(events) {
+tas.EventTarget.prototype.addEvents = function(events) {
     for (var type in events) {
         this.on(type, events[type]);
     }
@@ -124,7 +124,7 @@ EventTarget.prototype.addEvents = function(events) {
  * @param  {Object|String} events
  * @return {EventTarget} self
  */
-EventTarget.prototype.removeEvents = function(events) {
+tas.EventTarget.prototype.removeEvents = function(events) {
     // remove all events
     if (typeof events === 'string') {
         for (var handlers = this._events[events] || [], i = 0, len = handlers.length; i < len; i++) {
@@ -151,7 +151,7 @@ EventTarget.prototype.removeEvents = function(events) {
  * @param  {Mixed}  args
  * @return {EventTarget} self
  */
-EventTarget.prototype.trigger = function(type, args) {
+tas.EventTarget.prototype.trigger = function(type, args) {
     this._events = this._events || {};
     if (!this._events[type]) return this;
 

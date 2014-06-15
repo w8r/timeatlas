@@ -93,6 +93,11 @@ tas.View.prototype.createDom = function() {};
 tas.View.prototype.onRendered = function() {};
 
 /**
+ * Element will be destroyed, remove handlers
+ */
+tas.View.prototype.onBeforeDestroy = function() {};
+
+/**
  * Destroys dom element
  */
 tas.View.prototype.destroyDom = function() {
@@ -114,6 +119,9 @@ tas.View.prototype.appendChild = function(child) {
  * Destructor
  */
 tas.View.prototype.destroy = function() {
+    this.onBeforeDestroy();
+    this.destroyDom();
+
     this.element = null;
     this.model = null;
 };

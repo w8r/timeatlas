@@ -31,7 +31,6 @@ tas.App.Timeline = function(container) {
     this.setParent(container);
 
     this.update();
-
 };
 tas.utils.inherits(tas.App.Timeline, tas.View);
 
@@ -111,6 +110,55 @@ tas.App.Timeline.prototype.setStep = function() {
 tas.App.Timeline.prototype.update = function() {
     this.setStep();
     this.renderSegments();
+};
+
+/**
+ * @inheritDoc
+ */
+tas.App.Timeline.prototype.onRendered = function() {
+    var container = this.getElement(),
+        minHandle = $('.handle-min', container),
+        maxHandle = $('.handle-max', container);
+
+    console.log(minHandle, maxHandle);
+
+    this.onHandleDragStart = this.onHandleDragStart.bind(this);
+    this.onHandleDrag = this.onHandleDrag.bind(this);
+    this.onHandleDragStop = this.onHandleDragStop.bind(this);
+
+    minHandle.on('mousedown', this.onHandleDragStart);
+    maxHandle.on('mousedown', this.onHandleDragStart);
+};
+
+/**
+ * Handle drag start
+ * @param  {MouseEvent|TouchEvent} evt
+ */
+tas.App.Timeline.prototype.onHandleDragStart = function(evt) {
+    var doc = $(document);
+    doc.on('mousemove', this.onHandleDrag);
+    doc.on('mousemoup', this.onHandleDragStop);
+    console.log('start drag');
+};
+
+/**
+ * Handle drag
+ * @param  {MouseEvent|TouchEvent} evt
+ */
+tas.App.Timeline.prototype.onHandleDrag = function(evt) {
+    window.clearTimeout(this.dragHandleTimer);
+    this.dragHandleTimer = window.setTimeout(this.onHandleDragStop, 500);
+};
+
+/**
+ * Drop handle
+ * @param  {MouseEvent|TouchEvent} evt
+ */
+tas.App.Timeline.prototype.onHandleDragStop = function(evt) {
+    var doc = $(document);
+    doc.off('mousemove', this.onHandleDrag);
+    doc.off('mousemoup', this.onHandleDragStop);
+    console.log('stop drag');
 };
 
 /**

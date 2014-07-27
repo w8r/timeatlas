@@ -1,4 +1,10 @@
 /**
+ * @fileOverview Base map type. It's rather an interface, cause inside the app
+ * we use an implementation that is a wrapper around google maps
+ * @author w8r
+ */
+
+/**
  * @constructor
  * @extends {View}
  *

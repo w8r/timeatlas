@@ -1,8 +1,13 @@
 /**
+ * @fileOverview Timeline interface
+ * @author w8r
+ */
+
+/**
  * @constructor
- * @extends {View}
+ * @extends {tas.View}
  *
- * @param {App.View} container
+ * @param {tas.View} container
  */
 tas.App.Timeline = function(container) {
     tas.View.call(this);
@@ -52,6 +57,15 @@ tas.App.Timeline.Step = {
  * @type {String}
  */
 tas.App.Timeline.TEMPLATE_NAME = 'app.timeline';
+
+/**
+ * @enum {String}
+ * @static
+ * @type {Object}
+ */
+tas.App.Timeline.events = {
+    PERIOD_CHANGED: 'period_changed'
+};
 
 /**
  * @inheritDoc
@@ -124,11 +138,13 @@ tas.App.Timeline.prototype.onRendered = function() {
     this.onHandleDrag = this.onHandleDrag.bind(this);
     this.onHandleDragStop = this.onHandleDragStop.bind(this);
 
-    //minHandle.on('mousedown', this.onHandleDragStart);
-    minHandle.on('touchmove', this.onHandleDrag);
-
-    //maxHandle.on('mousedown', this.onHandleDragStart);
-    maxHandle.on('touchmove', this.onHandleDrag);
+    if (tas.browser.isTouch) {
+        minHandle.on(tas.eventType.TOUCHMOVE, this.onHandleDrag);
+        maxHandle.on(tas.eventType.TOUCHMOVE, this.onHandleDrag);
+    } else {
+        minHandle.on(tas.eventType.MOUSEDOWN, this.onHandleDragStart);
+        maxHandle.on(tas.eventType.MOUSEDOWN, this.onHandleDragStart);
+    }
 };
 
 /**
@@ -137,8 +153,13 @@ tas.App.Timeline.prototype.onRendered = function() {
  */
 tas.App.Timeline.prototype.onHandleDragStart = function(evt) {
     var doc = $(document);
-    doc.on('mousemove', this.onHandleDrag);
-    doc.on('mousemoup', this.onHandleDragStop);
+    if (tas.browser.isTouch) {
+        doc.on(tas.eventType.TOUCHMOVE, this.onHandleDrag);
+        doc.on(tas.eventType.TOUCHEND, this.onHandleDragStop);
+    } else {
+        doc.on(tas.eventType.MOUSEMOVE, this.onHandleDrag);
+        doc.on(tas.eventType.MOUSEUP, this.onHandleDragStop);
+    }
     console.log('start drag');
 };
 
@@ -156,9 +177,11 @@ tas.App.Timeline.prototype.onHandleDrag = function(evt) {
  * @param  {MouseEvent|TouchEvent} evt
  */
 tas.App.Timeline.prototype.onHandleDragStop = function(evt) {
+    window.clearTimeout(this.dragHandleTimer);
+
     var doc = $(document);
-    doc.off('mousemove', this.onHandleDrag);
-    doc.off('mousemoup', this.onHandleDragStop);
+    doc.off(tas.eventType.MOUSEMOVE, this.onHandleDrag);
+    doc.off(tas.eventType.MOUSEUP, this.onHandleDragStop);
     console.log('stop drag');
 };
 

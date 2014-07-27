@@ -1,3 +1,13 @@
+/**
+ * @fileOverview Basic view class
+ * @author w8r
+ */
+
+/**
+ * Basic vuew class
+ * @constructor
+ * @extends {tas.EventTarget}
+ */
 tas.View = function() {};
 tas.utils.inherits(tas.View, tas.EventTarget);
 

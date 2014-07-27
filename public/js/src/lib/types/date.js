@@ -1,3 +1,7 @@
+/**
+ * Date.now polyfill
+ * @return {Number}
+ */
 Date.now = Date.now || function() {
     return new Date().getTime();
 };

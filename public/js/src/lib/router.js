@@ -1,4 +1,12 @@
 /**
+ * @fileOverview Wrapper around http://github.com/visionmedia/page.js
+ * @author w8r
+ */
+
+/**
+ * Just a wrapper and a connection to the app class.
+ * No routes here
+ *
  * @constructor
  * @param {App} app
  */

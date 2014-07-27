@@ -1,5 +1,11 @@
 /**
+ * @fileOverview Footer view
+ * @author w8r
+ */
+
+/**
  * @param {tas.App} app
+ * @extends {tas.View}
  */
 tas.App.Footer = function(app) {
     this.app = app;

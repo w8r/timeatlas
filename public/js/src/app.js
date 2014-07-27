@@ -26,11 +26,14 @@
     '/js/src/namespace.js',
 
     // lib
+    '/js/src/lib/browser.js',
+    '/js/src/lib/eventtypes.js',
     '/js/src/lib/utils.js',
     '/js/src/lib/string.js',
     '/js/src/lib/templates.js',
     '/js/src/lib/types.js',
     '/js/src/lib/types/date.js',
+    '/js/src/lib/types/daterange.js',
     '/js/src/lib/router.js',
     '/js/src/lib/eventtarget.js',
     '/js/src/lib/view.js',

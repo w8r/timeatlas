@@ -1,6 +1,13 @@
 /**
+ * @fileOverview Map features selector
+ * @author w8r
+ */
+
+/**
+ * @constructor
  * @param {App.View} container
  * @param {Object}   [options]
+ * @extends {tas.View}
  */
 tas.App.FeaturesSelect = function(container, options) {
     tas.View.call(this);

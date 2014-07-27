@@ -1,8 +1,13 @@
 /**
+ * @fileOverview Map view
+ * @author w8r
+ */
+
+/**
  * @constructor
- * @extends {Map}
+ * @extends {tas.Map}
  *
- * @param {View} container
+ * @param {tas.View} container
  * @param {*} coords
  */
 tas.App.Map = function(container, coords) {

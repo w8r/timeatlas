@@ -1,3 +1,12 @@
+/**
+ * @fileOverview String routines
+ * @author w8r
+ */
+
+/**
+ * @static
+ * @type {Object}
+ */
 tas.string = {
 
 	/**

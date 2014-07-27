@@ -1,6 +1,12 @@
 /**
+ * @fileOverview App routing
+ * @author w8r
+ */
+
+/**
  * @constructor
  * @param {App} app
+ * @extends {tas.Router}
  */
 tas.App.Router = function(app) {
     tas.Router.call(this, app);

@@ -1,6 +1,11 @@
 /**
+ * @fileOverview Main application class
+ * @author w8r
+ */
+
+/**
  * Application
- * @extends {EventTarget}
+ * @extends {tas.EventTarget}
  * @constructor
  */
 tas.App = function() {
@@ -8,12 +13,12 @@ tas.App = function() {
     this.render();
 
     /**
-     * @type {Map}
+     * @type {tad.App.Map}
      */
     this.map = new tas.App.Map(this);
 
     /**
-     * @type {App.View}
+     * @type {tas.App.View}
      */
     this.appView = new tas.App.View(this);
 
@@ -28,7 +33,7 @@ tas.App = function() {
     this.currentView = null;
 
     /**
-     * @type {Router}
+     * @type {tas.App.Router}
      */
     this.router = new tas.App.Router(this);
 };

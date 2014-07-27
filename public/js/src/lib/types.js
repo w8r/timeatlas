@@ -1,1 +1,4 @@
+/**
+ * @type {Object}
+ */
 var types = {};

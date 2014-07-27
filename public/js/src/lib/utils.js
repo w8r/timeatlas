@@ -1,6 +1,6 @@
 /**
  * @fileOverview Utils
- * @author <a href="mailto:info@w8r.name">w8r</a>
+ * @author w8r
  */
 
 /**
